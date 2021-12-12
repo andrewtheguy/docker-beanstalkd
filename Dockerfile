@@ -1,10 +1,10 @@
 
 FROM alpine:3.10 as builder
 
-ARG BUILD_DATE
-ARG BUILD_VERSION
-ARG BUILD_TYPE
-ARG BEANSTALKD_VERSION
+ARG BUILD_DATE=20211211
+ARG BUILD_VERSION=20211211
+ARG BUILD_TYPE=stable
+ARG BEANSTALKD_VERSION=1.10
 
 # ---------------------------------------------------------------------------------------
 
