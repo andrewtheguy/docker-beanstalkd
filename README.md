@@ -1,3 +1,6 @@
+# reason why I forked
+
+Needed to make a quick update to compile for both amd64and arm64 binaries, it can be found under https://hub.docker.com/r/andrewchen5678/docker-beanstalkd
 # docker-beanstalkd
 
 A docker container for beanstalkd.
