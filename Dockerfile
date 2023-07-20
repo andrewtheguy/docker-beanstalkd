@@ -15,6 +15,7 @@ RUN \
   apk upgrade --quiet && \
   apk add     --quiet \
     build-base \
+    tini \
     git
 
 RUN \
@@ -65,7 +66,7 @@ HEALTHCHECK \
 COPY rootfs/ /
 VOLUME [ "/var/cache/beanstalkd" ]
 
-ENTRYPOINT ["/init/run.sh"]
+ENTRYPOINT ["/usr/bin/tini","/init/run.sh"]
 
 # CMD ["beanstalkd", "-b", "/var/cache/beanstalkd", "-f", "60"]
 CMD ["beanstalkd", "-f", "3200"]

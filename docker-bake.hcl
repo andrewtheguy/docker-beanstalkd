@@ -9,7 +9,7 @@ group "image-all" {
 
 
 target "build" {
-    tags = ["andrewchen5678/docker-beanstalkd:1.10"]
+    tags = ["ghcr.io/andrewtheguy/docker-beanstalkd:1.10"]
 }
 
 
