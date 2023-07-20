@@ -17,4 +17,4 @@ then
 fi
 
 log_info "start beanstalkd ..."
-exec "$@" 2> /dev/null
+exec /sbin/tini -- "$@"

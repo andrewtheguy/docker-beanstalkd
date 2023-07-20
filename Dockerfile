@@ -15,7 +15,6 @@ RUN \
   apk upgrade --quiet && \
   apk add     --quiet \
     build-base \
-    tini \
     git
 
 RUN \
@@ -50,6 +49,8 @@ RUN \
   cp "/usr/share/zoneinfo/${TZ}" /etc/localtime && \
   echo "${TZ}" > /etc/timezone && \
   mkdir /var/cache/beanstalkd && \
+  apk add     --quiet --no-cache  \
+    tini && \
   apk del --quiet .build-deps && \
   rm -rf \
     /tmp/* \
@@ -66,7 +67,7 @@ HEALTHCHECK \
 COPY rootfs/ /
 VOLUME [ "/var/cache/beanstalkd" ]
 
-ENTRYPOINT ["/usr/bin/tini","/init/run.sh"]
+ENTRYPOINT ["/init/run.sh"]
 
 # CMD ["beanstalkd", "-b", "/var/cache/beanstalkd", "-f", "60"]
 CMD ["beanstalkd", "-f", "3200"]
